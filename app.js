@@ -1,61 +1,6 @@
-class Vehiculo {
-    constructor(marca, modelo, precio) {
-        this.marca = marca;
-        this.modelo = modelo;
-        this.precio = precio;
-    }
+import Automovil from './clases/Automovil.js';
+import Ciclomotor from './clases/Ciclomotor.js';
 
-    mostrarDatos() {}
-
-    getMarca() {
-        return this.marca;
-    }
-
-    getModelo() {
-        return this.modelo;
-    }
-
-    getPrecio() {
-        return this.precio;
-    }
-
-    formatPrecio(precio) {
-        let amount = this.precio;
-        let opts = {
-            style: 'currency',
-            currency: 'USD'
-        };
-        let numberFormat2 = new Intl.NumberFormat('en-US', opts);
-        return numberFormat2.format(amount).replace('.', '*').replace(',', '.').replace('*', ',');
-    }
-}
-
-
-class Automovil extends Vehiculo {
-    constructor(marca, modelo, precio, puertas) {
-        super(marca, modelo, precio);
-        this.puertas = puertas;
-    }
-
-    mostrarDatos() {
-        let precio = this.formatPrecio(this.precio);
-        return `Marca: ${this.marca} // Modelo: ${this.modelo} // Puertas: ${this.puertas} // Precio: ${precio}`;
-    }
-
-}
-
-class Ciclomotor extends Vehiculo {
-    constructor(marca, modelo, precio, cilindrada) {
-        super(marca, modelo, precio);
-        this.cilindrada = cilindrada;
-    }
-
-    mostrarDatos() {
-
-        let precio = this.formatPrecio(this.precio);
-        return `Marca: ${this.marca} // Modelo: ${this.modelo} // Cilindrada: ${this.cilindrada} // Precio: ${precio}`;
-    }
-}
 
 // cargar los datos del problema
 let carros = cargarVehiculos();
